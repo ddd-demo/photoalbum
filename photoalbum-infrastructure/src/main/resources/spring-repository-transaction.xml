@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/aop
+	 http://www.springframework.org/schema/aop/spring-aop.xsd
+	 http://www.springframework.org/schema/context
+	 http://www.springframework.org/schema/context/spring-context.xsd">	
+	<!-- 增强 普通DS事务管理器 -->
+	<bean id="dsTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 配置完事物后 到声明式处修改代理本事物 hbTransactionManager  -->
+	<bean id="hbTransactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!--通知 对事务管理器进行代理制作,使用不同的持久化组件修改transaction-manager -->
+	<tx:advice id="txTransactionManager" transaction-manager="hbTransactionManager">
+		<tx:attributes>
+			<tx:method name="*save*" propagation="REQUIRED" />
+			<tx:method name="*add*" propagation="REQUIRED" />
+			<tx:method name="*update*" propagation="REQUIRED" />
+			<tx:method name="*meger*" propagation="REQUIRED" />
+			<tx:method name="*delete*" propagation="REQUIRED" />
+			<tx:method name="*remove*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut
+			expression="execution(* com.fengtaiguang.photoalbum.domain.repository.*.*(..))"
+			id="servicePointcut" />
+		<!-- <aop:advisor advice-ref="txDataSourceTransactionManager" pointcut-ref="servicePointcut" 
+			/> -->
+		<aop:advisor advice-ref="txTransactionManager"
+			pointcut-ref="servicePointcut" />
+	</aop:config>
+
+</beans>
