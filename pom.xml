@@ -24,7 +24,7 @@
 		<module>photoalbum-infrastructure</module>
 	</modules>
 	<build>
-		<!-- 指定JDK Tomcat-->
+		<!-- 指定JDK Tomcat -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
