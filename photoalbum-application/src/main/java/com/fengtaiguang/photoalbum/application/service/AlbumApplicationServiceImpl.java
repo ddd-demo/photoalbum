@@ -1,6 +1,7 @@
 package com.fengtaiguang.photoalbum.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -32,6 +33,7 @@ public class AlbumApplicationServiceImpl implements IAlbumApplicationService {
 		// 在此只需要albumDto====》entity
 		Album album = AlbumFactory.getInstace().createAlbum();
 		albumAdaper.toAlbum(albumDto, album);
+		album.setId(UUID.randomUUID().toString());
 		album.save();
 
 	}
@@ -70,14 +72,13 @@ public class AlbumApplicationServiceImpl implements IAlbumApplicationService {
 	@Override
 	public void meger(AlbumDto newAlbum, AlbumDto... albums) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void sort(AlbumDto... albums) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 }

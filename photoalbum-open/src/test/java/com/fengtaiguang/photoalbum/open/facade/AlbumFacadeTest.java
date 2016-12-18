@@ -22,7 +22,7 @@ public class AlbumFacadeTest extends  AbstractJUnit4SpringContextTests {
 	@Test
 	public void testSave() {
 		
-		System.out.println("alid=" + albumFacade.get("al001"));
+		//System.out.println("alid=" + albumFacade.get("al001"));
 	}
 
 }

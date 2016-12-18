@@ -1,5 +1,7 @@
 package com.fengtaiguang.photoalbum.domain.factory;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Component;
 
 import com.fengtaiguang.ddd.framwork.domain.factory.FactoryBase;

@@ -21,7 +21,7 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> 
 		<!-- /////////WEB配置-开始///////// -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

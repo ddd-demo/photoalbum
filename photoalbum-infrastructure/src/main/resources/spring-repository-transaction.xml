@@ -36,7 +36,7 @@
 	</tx:advice>
 	<aop:config>
 		<aop:pointcut
-			expression="execution(* com.fengtaiguang.photoalbum.domain.repository.*.*(..))"
+			expression="execution(* com.fengtaiguang.photoalbum.application.service.*.*(..))"
 			id="servicePointcut" />
 		<!-- <aop:advisor advice-ref="txDataSourceTransactionManager" pointcut-ref="servicePointcut" 
 			/> -->
