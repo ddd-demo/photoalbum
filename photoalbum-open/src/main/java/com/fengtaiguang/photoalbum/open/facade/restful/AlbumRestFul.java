@@ -56,6 +56,7 @@ public class AlbumRestFul {
 
 	@RequestMapping("find")
 	public List<AlbumDto> find(@RequestBody AlbumDto albumDto) {
+		System.out.println(".....find: albumDto:"+albumDto);
 		List<AlbumDto> list = albumFacade.findAll();
 		return list;
 	}
