@@ -40,12 +40,12 @@ public class AlbumAdaper implements IAlbumAdaper {
 		albumDto.setUserId(album.getUserId());
 		return albumDto;
 	}
-
+ 
 	public List<AlbumDto> toAlbumDtoList(List<Album> albumList) {
 		List list = new ArrayList();
 		for (int i = 0; i < albumList.size(); i++) {
 			list.add(toAlbumDto(albumList.get(i)));
-		}
+		} 
 		return list;
 	}
 

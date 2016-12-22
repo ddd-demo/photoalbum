@@ -1,7 +1,7 @@
 package com.fengtaiguang.photoalbum.open.facade;
 
 import java.util.List;
-
+ 
 import javax.inject.Inject;
 import javax.inject.Named;
 
