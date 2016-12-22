@@ -24,13 +24,6 @@ public class AlbumApplicationServiceImpl implements IAlbumApplicationService {
 
 	@Override
 	public void save(AlbumDto albumDto) {
-		// TODO Auto-generated method stub
-		// fc.get
-		// albumDto---->entity{User}
-		// UserAggRoot userAggRoot=userAggRootFactory.getUserAggRoot();
-		// userAggRoot.get(userId);====>User{userId.userName}===>entity
-
-		// 在此只需要albumDto====》entity
 		Album album = AlbumFactory.getInstace().createAlbum();
 		albumAdaper.toAlbum(albumDto, album);
 		album.setId(UUID.randomUUID().toString());

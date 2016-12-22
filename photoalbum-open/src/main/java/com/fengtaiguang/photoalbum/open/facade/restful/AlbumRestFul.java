@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,19 +17,18 @@ import com.fengtaiguang.photoalbum.open.facade.IAlbumFacade;
 @RestController
 @RequestMapping("/open/album/")
 public class AlbumRestFul {
+	Logger logger = Logger.getLogger(this.getClass());
 	@Inject
 	private IAlbumFacade albumFacade;
 
 	@RequestMapping("save")
 	public AlbumDto save(@RequestBody AlbumDto albumDto) {
-		System.out.println("albumDto=" + albumDto);
 		albumFacade.save(albumDto);
 		return albumDto;
 	}
 
 	@RequestMapping("edit/{id}")
 	public AlbumDto edit(@PathVariable String id) {
-		System.out.println("..get id=" + id);
 		AlbumDto albumDto = albumFacade.get(id);
 		return albumDto;
 	}
@@ -49,14 +49,12 @@ public class AlbumRestFul {
 
 	@RequestMapping("get/{id}")
 	public AlbumDto get(@PathVariable String id) {
-		System.out.println("..get id=" + id);
 		AlbumDto albumDto = albumFacade.get(id);
 		return albumDto;
 	}
 
 	@RequestMapping("find")
 	public List<AlbumDto> find(@RequestBody AlbumDto albumDto) {
-		System.out.println(".....find: albumDto:"+albumDto);
 		List<AlbumDto> list = albumFacade.findAll();
 		return list;
 	}
