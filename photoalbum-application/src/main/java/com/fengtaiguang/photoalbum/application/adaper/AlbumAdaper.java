@@ -15,6 +15,9 @@ public class AlbumAdaper implements IAlbumAdaper {
 	public Album toAlbum(AlbumDto albumDto, Album album) {
 		album.setId(albumDto.getId());
 		album.setName(albumDto.getName());
+		album.setNumber(albumDto.getNumber());
+		album.setDescription(albumDto.getDescription());
+		album.setUserId(albumDto.getUserId());
 		return album;
 	}
 

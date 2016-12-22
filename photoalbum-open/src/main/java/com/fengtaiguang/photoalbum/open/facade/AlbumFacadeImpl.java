@@ -25,13 +25,13 @@ public class AlbumFacadeImpl implements IAlbumFacade {
 	@Override
 	public void update(AlbumDto albumDto) {
 		// TODO Auto-generated method stub
-
+		albumApplicationService.update(albumDto);
 	}
 
 	@Override
 	public void delete(AlbumDto albumDto) {
 		// TODO Auto-generated method stub
-
+		albumApplicationService.delete(albumDto);
 	}
 
 	@Override
