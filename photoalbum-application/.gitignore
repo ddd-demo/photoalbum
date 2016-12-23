@@ -1,11 +1,9 @@
 /target/
-/target/**
+target
 .classpath
 .project
 .settings
-*.class
-*.jar
-
+ 
 # IDE support files
 #/.classpath
 #/.launch
