@@ -27,6 +27,7 @@ public class HibernateBaseRepositoryTest extends AbstractJUnit4SpringContextTest
 //		Album album=new Album();
 //		album.setName("xc");
 //		daoTemplate.findByExample(album);
+		
 	}
 
 	@Test
